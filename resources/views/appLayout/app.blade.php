@@ -56,6 +56,10 @@
     <meta name="twitter:image" content="your_absolute_image_url_goes_here"> 
 
     <link rel="canonical" href="your_canonical_url_goes_here">
-
+<!-- Toastr JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 </head>
+
+
+
 <body>

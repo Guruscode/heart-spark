@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Like;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,8 +14,14 @@ class ProfileController extends Controller
         // Get the authenticated user
         $user = Auth::user();
         
+        $users = User::whereIn('id', function ($query) {
+            $query->select('user_id')
+                  ->from('likes')
+                  ->where('liked_user_id', Auth::id());
+        })->get();
+        
         // Return the profile view with user data
-        return view('profile.show', compact('user'));
+        return view('profile.show', compact('user', "users"));
     }
     public function edit()
 {

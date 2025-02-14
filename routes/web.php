@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 
 /*
@@ -29,8 +30,13 @@ Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.e
 Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 
 
-Route::get('/inbox', [ChatController::class, 'inbox'])->name('inbox');
+Route::get('/inbox', [MessageController::class, 'index'])->name('inbox');
 
 
 Route::post('/like', [LikeController::class, 'likeUser'])->name('like.user');
 
+
+// Route::get('/messages', [MessageController::class, 'index'])->name('messages.index');
+Route::get('/messages/create', [MessageController::class, 'create'])->name('messages.create');
+Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
+Route::get('/messages/{id}', [MessageController::class, 'show'])->name('messages.show');

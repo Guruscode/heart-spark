@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -177,4 +177,141 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+        }
+        .form-control {
+            border-radius: 5px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <br><br>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title text-center mb-4">Heart Spark</h3>
+                        @if ($errors->any())
+                            <div class="text-danger text-center mb-3">
+                                @foreach ($errors->all() as $error)
+                                    <p>{{ $error }}</p>
+                                @endforeach
+                            </div>
+                        @endif
+                        <hr>
+                        
+                        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Full Name</label>
+                                <input id="name" type="text" class="form-control" name="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input id="email" type="email" class="form-control" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input id="phone" type="text" class="form-control" name="phone" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="age" class="form-label">Age</label>
+                                <input id="age" type="number" class="form-control" name="age" required min="1">
+                            </div>
+                            <div class="mb-3">
+                                <label for="gender" class="form-label">Gender</label>
+                                <select id="gender" class="form-control" name="gender" required>
+                                    <option value="" disabled selected>Select your gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="location" class="form-label">Location</label>
+                                <input id="location" type="text" class="form-control" name="location" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="bio" class="form-label">Bio</label>
+                                <textarea id="bio" class="form-control" name="bio" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="interests" class="form-label">Interests</label>
+                                <select id="interests" class="form-select" name="interests" required>
+                                    <option value="">Select your interest</option>
+                                    <option value="aries">Aries</option>
+                                    <option value="taurus">Taurus</option>
+                                    <option value="gemini">Gemini</option>
+                                    <option value="cancer">Cancer</option>
+                                    <option value="leo">Leo</option>
+                                    <option value="virgo">Virgo</option>
+                                    <option value="libra">Libra</option>
+                                    <option value="scorpio">Scorpio</option>
+                                    <option value="sagittarius">Sagittarius</option>
+                                    <option value="capricorn">Capricorn</option>
+                                    <option value="aquarius">Aquarius</option>
+                                    <option value="pisces">Pisces</option>
+                                </select>
+                                <div class="mb-3">
+                                    <label for="profile_image" class="form-label">{{ __('Profile Image') }}</label>
+                                
+                                 
+                                    <div class="col-md-6">
+                                        <input id="profile_picture" type="file" class="form-control @error('profile_picture') is-invalid @enderror" name="profile_picture" accept="image/*" required>
+                                
+                                      
+                                    </div>
+                                </div>
+                                
+                            
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input id="password" type="password" class="form-control" name="password" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password-confirm" class="form-label">Confirm Password</label>
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary">Register</button>
+                            </div>
+                        </form>
+                        <div class="text-center mt-3 create-account">
+                            <p>Already have an account? <a href="{{ route('login') }}" class="text-decoration-none">Login</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
