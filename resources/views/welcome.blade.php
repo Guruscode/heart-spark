@@ -38,61 +38,28 @@
 	                </p> --}}
 	            </div>
 	        </div>
-	        <div>
-	            <div class="row row-cols-1 row-cols-xl-3 gy-5 gx-xl-4 mt-1 justify-content-center justify-content-xl-between">
-	                <div class="col pt-5 pt-xl-4">
-	                    <div class="max-w-xl mx-auto mx-xl-0" data-aos-delay="0" data-aos="fade" data-aos-duration="1000">
-                        	<div class="ratio" style="--bs-aspect-ratio: 66.66%;">
-                                <img src="./assets/img/bg/bg2.jpg" class="object-fit-cover rounded-3" alt="Service image" loading="lazy">
+            <div>
+                <div class="row row-cols-1 row-cols-xl-3 gy-5 gx-xl-4 mt-1 justify-content-center justify-content-xl-between">
+                    @foreach($users as $user)
+                    <div class="col pt-5 pt-xl-4">
+                        <div class="max-w-xl mx-auto mx-xl-0" data-aos-delay="0" data-aos="fade" data-aos-duration="1000">
+                            <div class="ratio" style="--bs-aspect-ratio: 66.66%;">
+                                <img src="{{ asset('storage/' . $user->profile_picture)  ?? 'https://via.placeholder.com/40' }}" class="object-fit-cover rounded-3" alt="User image" loading="lazy">
                             </div>
-
+            
                             <h3 class="m-0 mt-4 text-body-emphasis text-lg leading-6 fw-semibold">
-                                     </h3>Meet someone with HeartSaprk Date</h3>
-
-                            <!-- Remove line-clamp-2 if you need more lines or add line-clamp-3 -->
-                            <p class="m-0 mt-3 text-body-secondary line-clamp-2 text-sm leading-6">
-                                Find someone you actually want to date, then go ahead and Make the First Move. Make genuine connections, vibe over what you both love, and most importantly, have fun.
-                            </p>
-	                    </div>
-	                </div>
-      				
-      				<div class="col pt-5 pt-xl-4">
-	                    <div class="max-w-xl mx-auto mx-xl-0" data-aos-delay="100" data-aos="fade" data-aos-duration="1000">
-                        	<div class="ratio" style="--bs-aspect-ratio: 66.66%;">
-                                <img src="./assets/img/bg/bg3.jpg" class="object-fit-cover rounded-3" alt="Service image" loading="lazy">
-                            </div>
-
-                            <h3 class="m-0 mt-4 text-body-emphasis text-lg leading-6 fw-semibold">
-                            Find new freinds on Heart sparks for Friends
+                                {{ $user->name }}
                             </h3>
-
+            
                             <!-- Remove line-clamp-2 if you need more lines or add line-clamp-3 -->
                             <p class="m-0 mt-3 text-body-secondary line-clamp-2 text-sm leading-6">
-                               
-                                Meet someone like you. Or unlike you. Make new friends and find new things to do together — whether you’re home or away.
+                                {{ $user->bio }}
                             </p>
-	                    </div>
-	                </div>
-
-	                <div class="col pt-5 pt-xl-4">
-	                    <div class="max-w-xl mx-auto mx-xl-0" data-aos-delay="200" data-aos="fade" data-aos-duration="1000">
-                        	<div class="ratio" style="--bs-aspect-ratio: 66.66%;">
-                                <img src="./assets/img/bg/bg4.jpg" class="object-fit-cover rounded-3" alt="Service image" loading="lazy">
-                            </div>
-
-                            <h3 class="m-0 mt-4 text-body-emphasis text-lg leading-6 fw-semibold">
-                                Make career Moves with Heart spark
-                            </h3>
-
-                            <!-- Remove line-clamp-2 if you need more lines or add line-clamp-3 -->
-                            <p class="m-0 mt-3 text-body-secondary line-clamp-2 text-sm leading-6">
-                                
-Find friends with work benefits. Connect with other business professionals to find your next job, a mentor or even a whole new career.
-                            </p>
-	                    </div>
-	                </div>
-	            </div>
-	        </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
 
 	        <div class="text-center pt-7">
 	            <a href="javascript:;" class="btn btn-lg btn-primary text-white icon-link icon-link-hover text-sm leading-6 fw-semibold">

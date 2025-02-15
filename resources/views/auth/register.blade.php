@@ -254,7 +254,7 @@
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="location" class="form-label">Location</label>
+                                <label for="location" class="form-label">Location (Address)</label>
                                 <input id="location" type="text" class="form-control" name="location" required>
                             </div>
                             

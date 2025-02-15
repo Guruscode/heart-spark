@@ -8,7 +8,13 @@ use Illuminate\Http\Request;
 class PagesController extends Controller
 {
     public function index() {
-        return view('welcome');
+        // Fetch the three most recent users excluding the user with the name "super_admin"
+        $users = User::where('name', '!=', 'super-admin')
+                     ->orderBy('created_at', 'desc')
+                     ->take(3)
+                     ->get();
+    
+        return view('welcome', compact('users'));
     }
 
     public function about() {
