@@ -21,7 +21,12 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name', 'email', 'phone', 'age', 'gender', 'location', 'bio', 'interests', 'profile_picture' ,   'password',
+        'subscription_type', 'subscription', 'paid', 
+        'subscription_started_at', 'subscription_expires_at', 'payment_provider', 'payment_reference'
     ];
+
+    protected $dates = ['subscription_started_at', 'subscription_expires_at'];
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -42,6 +47,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+      // Check if user has an active subscription
+      public function hasActiveSubscription()
+      {
+          return $this->subscription && $this->subscription_expires_at && $this->subscription_expires_at->isFuture();
+      }
+  
+      // Check if user is subscribed to premium
+      public function isPremium()
+      {
+          return $this->subscription_type === 'premium' && $this->hasActiveSubscription();
+      }
+  
+      // Check if subscription has expired
+      public function hasExpiredSubscription()
+      {
+          return $this->subscription_expires_at && $this->subscription_expires_at->isPast();
+      }
     public function likes()
 {
     return $this->hasMany(Like::class, 'liked_user_id', 'id');

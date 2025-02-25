@@ -36,6 +36,25 @@
         .form-control {
             border-radius: 20px;
         }
+
+        .navbar-nav .nav-link {
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffeaa7 !important;
+    transform: scale(1.1);
+}
+
+.navbar-toggler {
+    font-size: 1.5rem;
+}
+
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+}
+
     </style>
     
 <!-- ✅ Smooth Animations -->

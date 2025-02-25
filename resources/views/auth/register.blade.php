@@ -279,16 +279,17 @@
                                     <option value="aquarius">Aquarius</option>
                                     <option value="pisces">Pisces</option>
                                 </select>
-                                <div class="mb-3">
-                                    <label for="profile_image" class="form-label">{{ __('Profile Image') }}</label>
-                                
-                                 
-                                    <div class="col-md-6">
-                                        <input id="profile_picture" type="file" class="form-control @error('profile_picture') is-invalid @enderror" name="profile_picture" accept="image/*" required>
-                                
-                                      
-                                    </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="profile_image" class="form-label">{{ __('Profile Image') }}</label>
+                            
+                             
+                                <div class="col-md-6">
+                                    <input id="profile_picture" type="file" class="form-control @error('profile_picture') is-invalid @enderror" name="profile_picture" accept="image/*" required>
+                            
+                                  
                                 </div>
+                            </div>
                                 
                             
                             <div class="mb-3">

@@ -2,40 +2,7 @@
 
 @section('content')
 <div class="container-fluid">
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand font-weight-bold text-primary" href="{{ route('index.home') }}">❤️ HeartSpark</a>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
-                <ul class="navbar-nav ml-auto align-items-center">
-                    <li class="nav-item mr-3">
-                        <a class="nav-link" href="{{route('home')}}"><i class="fas fa-home"></i> Home</a>
-                    </li>
-                    <li class="nav-item mr-3">
-                        <a class="nav-link" href="{{ route('inbox') }}"><i class="fas fa-envelope"></i> Inbox</a>
-                    </li>
-                    <li class="nav-item mr-3">
-                        <a class="nav-link" href="{{ route('profile.show') }}"><i class="fas fa-user"></i> My Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <form action="{{ route('logout') }}" method="POST" class="d-inline">
-                            @csrf
-                            <button type="submit" class="btn btn-sm btn-outline-danger">Logout</button>
-                        </form>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn btn-sm btn-primary text-white px-4" href="#">Upgrade</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
+    @include('layouts.nav')
     <!-- Chat Section -->
     <div class="row mt-5 pt-4">
         <div class="col-lg-9 mx-auto">

@@ -7,6 +7,7 @@ use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SubscriptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +41,8 @@ Route::post('/like', [LikeController::class, 'likeUser'])->name('like.user');
 Route::get('/messages/create', [MessageController::class, 'create'])->name('messages.create');
 Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
 Route::get('/messages/{id}', [MessageController::class, 'show'])->name('messages.show');
+
+
+Route::get('/subscription/plans', [SubscriptionController::class, 'showPlans'])->name('plans');
+Route::get('/subscription/payment', [SubscriptionController::class, 'showPaymentForm'])->name('payment.form');
+Route::post('/subscription/payment-success', [SubscriptionController::class, 'handlePaymentSuccess'])->name('subscription.payment.success');
